@@ -5,7 +5,7 @@
 
 #define N 100
 #define NOTFOUND -1
-#define INFTY 1e9
+
 typedef struct {                /* 要はただの配列 */
     int q[N+1];                 /* index: 1,2,...,N */
     int n;
@@ -42,8 +42,8 @@ void bubble_down (int n, heap *H) {
     int temp;
 
     min = H->q[n];
-    left = (2*n <= H->n) ? H->q[2*n] : INFTY;
-    right = (2*n+1 <= H->n) ? H->q[2*n + 1] : INFTY;
+    left = (2*n <= H->n) ? H->q[2*n] : min+1;
+    right = (2*n+1 <= H->n) ? H->q[2*n + 1] : min+1;
 
     if (left < min)
         min = left;
